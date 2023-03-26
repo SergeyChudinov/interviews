@@ -52,7 +52,7 @@ Array.prototype.forEach2 = function (func, thisArg) {
 }
 
 arr = [1, 2, 3, 4];
-// arr.forEach2(val => console.log(val)); // 1 2 3 4
+arr.forEach2(val => console.log(val)); // 1 2 3 4
 
 arr.forEach2((val, idx, arr) => { // 1 2 4
   console.log(val);  
