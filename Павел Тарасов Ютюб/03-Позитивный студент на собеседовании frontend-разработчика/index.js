@@ -1,22 +1,22 @@
-// const posts = document.querySelector('.posts');
-// const n1 = posts.children;
-// const n2 = posts.childNodes;
-// console.log(n1);
-// console.log(n2);
-// console.log(1 + 145)
+const posts = document.querySelector('.posts');
+const n1 = posts.children;
+const n2 = posts.childNodes;
+console.log(n1);
+console.log(n2);
+console.log(1 + 145)
 
-// function f() { // Не верно!
-// 	let a = 5;
-// 	return new Function('b', 'return a + b')
-// }
+function f() { // Не верно!
+	let a = 5;
+	return new Function('b', 'return a + b')
+}
+console.log(f()(1));
+
+function f(b) { // Верно!
+	let a = 5;
+	return new Function('a', 'b', 'return a + b')(a, b)
+}
 // console.log(f()(1));
-
-// function f(b) { // Верно!
-// 	let a = 5;
-// 	return new Function('a', 'b', 'return a + b')(a, b)
-// }
-// // console.log(f()(1));
-// console.log(f(6)); 
+console.log(f(6)); 
 
 
 /*
@@ -33,98 +33,98 @@
 Верните YES, если Вася сможет продать билет каждому человеку и дать сдачу.
 В противном случае верните NO.
 */
-// function tickets(people) {
-// 	const arr = [];
-// 	for (const pay of people) {
-// 		if (pay == 25) {
-// 			arr.push(pay);
-// 		} else if (pay == 50) {
-// 			if (arr.includes(pay / 2)) {
-// 				const i25 = arr.findIndex(el => el == pay / 2);
-// 				arr.splice(i25, 1, pay);
-// 			} else {
-// 				return "NO";
-// 			}
-// 		} else {
-// 			if (arr.includes(pay / 2) && arr.includes(pay / 4)) {
-// 				const i50 = arr.findIndex(el => el == pay / 2);
-// 				const i25 = arr.findIndex(el => el == pay / 4);
-// 				delete arr[i50];
-// 				delete arr[i25]; 
-// 				arr.push(pay);
-// 			} else if (arr.filter(el => el == pay / 4).length >= 3) {
-// 				for (let i = 0; i < 3; i++) {
-// 					const i25 = arr.findIndex(el => el == pay / 4);
-// 					delete arr[i25];
-// 				}
-// 				arr.push(pay);
-// 			} else {
-// 				return "NO";
-// 			}
-// 		}
-// 	}
-// 	return "YES";
-// }
+function tickets(people) {
+	const arr = [];
+	for (const pay of people) {
+		if (pay == 25) {
+			arr.push(pay);
+		} else if (pay == 50) {
+			if (arr.includes(pay / 2)) {
+				const i25 = arr.findIndex(el => el == pay / 2);
+				arr.splice(i25, 1, pay);
+			} else {
+				return "NO";
+			}
+		} else {
+			if (arr.includes(pay / 2) && arr.includes(pay / 4)) {
+				const i50 = arr.findIndex(el => el == pay / 2);
+				const i25 = arr.findIndex(el => el == pay / 4);
+				delete arr[i50];
+				delete arr[i25]; 
+				arr.push(pay);
+			} else if (arr.filter(el => el == pay / 4).length >= 3) {
+				for (let i = 0; i < 3; i++) {
+					const i25 = arr.findIndex(el => el == pay / 4);
+					delete arr[i25];
+				}
+				arr.push(pay);
+			} else {
+				return "NO";
+			}
+		}
+	}
+	return "YES";
+}
 
-// console.log(tickets([25, 25, 50])); // "YES"
-// console.log(tickets([25, 100])); // "NO" (У Васи нет сдачи со 100)
-// console.log(tickets([25, 25, 50, 50, 100])); // "NO"
-// console.log(tickets([25, 25, 25, 25, 25, 100, 100])); // "NO"
-// console.log(tickets([25, 25, 50, 100, 25, 50, 25, 100, 25, 25, 25, 100])); // "YES"
-// console.log(tickets([25, 25, 25, 100, 25, 25, 50, 100, 25, 25, 25, 100])); // "YES"
-// console.log(tickets([25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 100, 100, 100, 100])); // => "NO"
-// console.log(tickets([25, 25, 50])); // "YES"
-// console.log(tickets([25, 100])); // "NO"
-// console.log(tickets([25, 25, 50, 50, 100])); // "NO"
-// console.log(tickets([25, 50, 25, 100])); // "YES"
-// console.log(tickets([25, 50, 50])); // "NO"
-// console.log(tickets([25, 25, 25, 100])); // "YES"
-// console.log(tickets([25, 25, 25, 25, 25, 50, 100])); // "YES"
-// console.log(tickets([25, 100])); // "NO"
+console.log(tickets([25, 25, 50])); // "YES"
+console.log(tickets([25, 100])); // "NO" (У Васи нет сдачи со 100)
+console.log(tickets([25, 25, 50, 50, 100])); // "NO"
+console.log(tickets([25, 25, 25, 25, 25, 100, 100])); // "NO"
+console.log(tickets([25, 25, 50, 100, 25, 50, 25, 100, 25, 25, 25, 100])); // "YES"
+console.log(tickets([25, 25, 25, 100, 25, 25, 50, 100, 25, 25, 25, 100])); // "YES"
+console.log(tickets([25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 100, 100, 100, 100])); // => "NO"
+console.log(tickets([25, 25, 50])); // "YES"
+console.log(tickets([25, 100])); // "NO"
+console.log(tickets([25, 25, 50, 50, 100])); // "NO"
+console.log(tickets([25, 50, 25, 100])); // "YES"
+console.log(tickets([25, 50, 50])); // "NO"
+console.log(tickets([25, 25, 25, 100])); // "YES"
+console.log(tickets([25, 25, 25, 25, 25, 50, 100])); // "YES"
+console.log(tickets([25, 100])); // "NO"
 
 // 2 решение
-// function tickets(people) {
-// 	let money25 = 0;
-// 	let money50 = 0;
-// 	for (const pay of people) {
-// 		if (pay == 25) {
-// 			money25++;
-// 		} else if (pay == 50) {
-// 			if (money25 > 0) {
-// 				money25--;
-// 				money50++;
-// 			} else {
-// 				return "NO";
-// 			}
-// 		} else {
-// 			if (money25 > 0 && money50 > 0) {
-// 				money25--;
-// 				money50--;
-// 			} else if (money25 > 2) {
-// 				money25 -= 3
-// 			} else {
-// 				return "NO";
-// 			}
-// 		}
-// 	}
-// 	return "YES";
-// }
+function tickets(people) {
+	let money25 = 0;
+	let money50 = 0;
+	for (const pay of people) {
+		if (pay == 25) {
+			money25++;
+		} else if (pay == 50) {
+			if (money25 > 0) {
+				money25--;
+				money50++;
+			} else {
+				return "NO";
+			}
+		} else {
+			if (money25 > 0 && money50 > 0) {
+				money25--;
+				money50--;
+			} else if (money25 > 2) {
+				money25 -= 3
+			} else {
+				return "NO";
+			}
+		}
+	}
+	return "YES";
+}
 
-// console.log(tickets([25, 25, 50])); // "YES"
-// console.log(tickets([25, 100])); // "NO" (У Васи нет сдачи со 100)
-// console.log(tickets([25, 25, 50, 50, 100])); // "NO"
-// console.log(tickets([25, 25, 25, 25, 25, 100, 100])); // "NO"
-// console.log(tickets([25, 25, 50, 100, 25, 50, 25, 100, 25, 25, 25, 100])); // "YES"
-// console.log(tickets([25, 25, 25, 100, 25, 25, 50, 100, 25, 25, 25, 100])); // "YES"
-// console.log(tickets([25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 100, 100, 100, 100])); // => "NO"
-// console.log(tickets([25, 25, 50])); // "YES"
-// console.log(tickets([25, 100])); // "NO"
-// console.log(tickets([25, 25, 50, 50, 100])); // "NO"
-// console.log(tickets([25, 50, 25, 100])); // "YES"
-// console.log(tickets([25, 50, 50])); // "NO"
-// console.log(tickets([25, 25, 25, 100])); // "YES"
-// console.log(tickets([25, 25, 25, 25, 25, 50, 100])); // "YES"
-// console.log(tickets([25, 100])); // "NO"
+console.log(tickets([25, 25, 50])); // "YES"
+console.log(tickets([25, 100])); // "NO" (У Васи нет сдачи со 100)
+console.log(tickets([25, 25, 50, 50, 100])); // "NO"
+console.log(tickets([25, 25, 25, 25, 25, 100, 100])); // "NO"
+console.log(tickets([25, 25, 50, 100, 25, 50, 25, 100, 25, 25, 25, 100])); // "YES"
+console.log(tickets([25, 25, 25, 100, 25, 25, 50, 100, 25, 25, 25, 100])); // "YES"
+console.log(tickets([25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 100, 100, 100, 100])); // => "NO"
+console.log(tickets([25, 25, 50])); // "YES"
+console.log(tickets([25, 100])); // "NO"
+console.log(tickets([25, 25, 50, 50, 100])); // "NO"
+console.log(tickets([25, 50, 25, 100])); // "YES"
+console.log(tickets([25, 50, 50])); // "NO"
+console.log(tickets([25, 25, 25, 100])); // "YES"
+console.log(tickets([25, 25, 25, 25, 25, 50, 100])); // "YES"
+console.log(tickets([25, 100])); // "NO"
 
 /*
 Прислал Геворг

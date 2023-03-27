@@ -102,9 +102,9 @@ function getSortedString(str) { // Мое решение!
 			return sumA - sumB;
 		} else {
 			if (a < b) {
-				return -1; // +a - +b
+				return -1; // return a - b;
 			} else {
-				return 1; // +a - +b
+				return 1; 
 			}
 		}
 	}).join(' ');
@@ -133,7 +133,6 @@ console.log(getSortedString("280 456 1111 99 1000"));
 //   1   9  9  11 11 11 14 14 18   <- sum of digits below
 // "100 180 90 56 65 74 68 86 99"  <- expected string in console.log
 console.log(getSortedString("74 56 65 100 99 180 68 86 90"));
-
 
 const array = [7, 3, 6, 2, 5];
 function fn(arr) {
