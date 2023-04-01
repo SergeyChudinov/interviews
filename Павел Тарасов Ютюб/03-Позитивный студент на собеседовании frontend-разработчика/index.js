@@ -9,7 +9,7 @@ function f() { // Не верно!
 	let a = 5;
 	return new Function('b', 'return a + b')
 }
-console.log(f()(1));
+// console.log(f()(1));
 
 function f(b) { // Верно!
 	let a = 5;

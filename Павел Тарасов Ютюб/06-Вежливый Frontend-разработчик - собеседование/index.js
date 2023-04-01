@@ -118,11 +118,22 @@ class TypedArrayRangeStorage {
 const u8 = Uint8Array.from({
 	length: 12
 }, (_) => Math.random() * 8);
-const rangeStorage = new TypedArrayRangeStorage(u8);
-console.log(rangeStorage.getRange(4, 4));
-console.log(rangeStorage.getRange(2, 2));
-// console.log(rangeStorage.getRange(3, 4)); // RangeError: Invalid range: [3,7]
+const u82 = [0,1,2,3,4,5,6,7,8,9,10,11]
+const rangeStorage = new TypedArrayRangeStorage(u82);
+console.log(rangeStorage.getRange(4, 4)); // [4, 5, 6, 7]
+console.log(rangeStorage.getRange(2, 2)); // [2, 3]
+console.log(rangeStorage.getRange(3, 4)); // RangeError: Invalid range: [3,7]
 console.log(rangeStorage);
 
 console.log(new Array(2, 3))
 console.log(new Array(2, 3).fill(''))
+
+const array1 = [1, 2, 3, 4];
+// Fill with 0 from position 2 until position 4
+console.log(array1.fill(0, 2, 4));
+// Expected output: Array [1, 2, 0, 0]
+// Fill with 5 from position 1
+console.log(array1.fill(5, 1));
+// Expected output: Array [1, 5, 5, 5]
+console.log(array1.fill(6));
+// Expected output: Array [6, 6, 6, 6]
