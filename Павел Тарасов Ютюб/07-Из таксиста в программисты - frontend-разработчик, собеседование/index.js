@@ -15,7 +15,7 @@ let c = 0;
 let d = 1;
 let a = c || d;
 let b = c ?? d;
-console.log('a-', a, ' b-', b); // a- 1  b- 0
+// console.log('a-', a, ' b-', b); // a- 1  b- 0
 
 
 //22 : 32 - Задача 1 про влюбленную парочку(https: //jsfiddle.net/mockinterview/td...)
@@ -50,75 +50,72 @@ data - матрица с ценами за каждый билет. Заняты
 Если ответа не существует, выведите "Bad day :(".
 */
 function searchTickets(data) { //data = [[], [], []]
-	let minSumPrice = data[0][0] + data[0][1];
-	let position = [0, 0, 0, 1];
-	let center = 2 - length;
-	let availabilOfTickets = false;
+	let minSumPrice;
+	let position;
+	let center; // let center = 2 - length; 
 	function getPosition(i, j, length) {
-		position[0] = i;
-		position[1] = j;
-		position[2] = i;
-		position[3] = j + 1;
+		position = [i, j, i, j + 1];
 		center = Math.abs(2 * j + 2 - length);
 	}
 	data.forEach((el, i)=> {
 		for (let j = 0; j < el.length; j++) {
 			if (el[j] != -1 && (el[j + 1] != -1 && el[j + 1])) {
-				if ((el[j] + el[j + 1]) < minSumPrice) {
+				if (!position) {
+					minSumPrice = el[j] + el[j + 1];
+					getPosition(i, j, el.length);
+				} else if ((el[j] + el[j + 1]) < minSumPrice) {
 					minSumPrice = (el[j] + el[j + 1]);
 					getPosition(i, j, el.length);
 				} else if ((el[j] + el[j + 1]) === minSumPrice && Math.abs(2 * j + 2 - el.length) < center && i === position[0]) {
 					getPosition(i, j, el.length);
 				}
-				availabilOfTickets = true;
 			}
 		}
 	});
-	if (availabilOfTickets) {
+	if (position) {
 		return `(${position[0]}, ${position[1]}) (${position[2]}, ${position[3]}) ${minSumPrice}`;
 	} else {
 		return 'Bad day :('
 	}
 }
-// console.log(searchTickets([
-// 	[1, 1, 1, 1, 1],
-// 	[-1, -1, 4, 1, 1],
-// 	[-1, 3, 5, 1, 1],
-// 	// экран
-// ])); // => "(0, 1) (0, 2) 2"
-// console.log(searchTickets([
-// 	[3, 2, 1],
-// 	[-1, -1, 4],
-// 	[-1, 3, 5],
-// 	// экран
-// ])); // => "(0, 1) (0, 2) 3"
-// console.log(searchTickets([
-// 	[1, 2, 1],
-// 	[-1, -1, 4],
-// 	[1, 2, 4],
-// 	// экран
-// ])); // => "(0, 0) (0, 1) 3"
-// console.log(searchTickets([
-// 	[3, 2, 5, 1, 1],
-// 	[-1, -1, 4, 2, 1],
-// 	[-1, 3, 1, 1, 5],
-// 	// экран
-// ])); // => "(0, 3) (0, 4) 2"
-// console.log(searchTickets([
-// 	[-1, 1, -1, 2, -1],
-// 	[-1, -1, 4, -1, 1],
-// 	[2, -1, 5, -1, 1],
-// 	// экран
-// ])); // => "Bad day :("
-// console.log(searchTickets([
-// 	[3, 2, 2, 4, 5, 3],
-// 	[1, 1, 1, 1, 1, 1],
-// 	[1, 3, 5, -1, 1, -1],
-// 	[2, -1, 5, 1, 3, -1],
-// 	[1, 3, 4, 1, 1, -1],
-// 	// экран
-// ])); // => "(1, 2) (1, 3) 2"
-// [3, 1, 1, 4, 1, 1]
+console.log(searchTickets([
+	[1, 1, 1, 1, 1],
+	[-1, -1, 4, 1, 1],
+	[-1, 3, 5, 1, 1],
+	// экран
+])); // => "(0, 1) (0, 2) 2"
+console.log(searchTickets([
+	[3, 2, 1],
+	[-1, -1, 4],
+	[-1, 3, 5],
+	// экран
+])); // => "(0, 1) (0, 2) 3"
+console.log(searchTickets([
+	[1, 2, 1],
+	[-1, -1, 4],
+	[1, 2, 4],
+	// экран
+])); // => "(0, 0) (0, 1) 3"
+console.log(searchTickets([
+	[3, 2, 5, 1, 1],
+	[-1, -1, 4, 2, 1],
+	[-1, 3, 1, 1, 5],
+	// экран
+])); // => "(0, 3) (0, 4) 2"
+console.log(searchTickets([
+	[-1, 1, -1, 2, -1],
+	[-1, -1, 4, -1, 1],
+	[2, -1, 5, -1, 1],
+	// экран
+])); // => "Bad day :("
+console.log(searchTickets([
+	[3, 2, 2, 4, 5, 3],
+	[1, 1, 1, 1, 1, 1],
+	[1, 3, 5, -1, 1, -1],
+	[2, -1, 5, 1, 3, -1],
+	[1, 3, 4, 1, 1, -1],
+	// экран
+])); // => "(1, 2) (1, 3) 2"
 // Студент
 function searchTickets2(data) { //data = [[], [], []]
 	const variants = [];
@@ -179,10 +176,10 @@ class SecondClass extends FirstClass {
 }
 const first = new FirstClass(['JavaScript', 'CSS', 'HTML']);
 const second = new SecondClass(7, 12);
-console.log(second)
-console.log(second.hasOwnProperty('data')); // true - должно быть false
-console.log(first.getKey()); // '05837dj7:00476056ku5' - должно работать
-console.log(second.getKey()); // '05837dj7:00476056ku5' - должно работать
+// console.log(second)
+// console.log(second.hasOwnProperty('data')); // true - должно быть false
+// console.log(first.getKey()); // '05837dj7:00476056ku5' - должно работать
+// console.log(second.getKey()); // '05837dj7:00476056ku5' - должно работать
 //решение
 class FirstClass2 {
 	constructor(data) {
@@ -206,10 +203,10 @@ class SecondClass2 extends FirstClass2 {
 }
 const first2 = new FirstClass2(['JavaScript', 'CSS', 'HTML']);
 const second2 = new SecondClass2(7, 12);
-console.log(second2);
-console.log(second2.hasOwnProperty('data')); // true - должно быть false
-console.log(first2.getKey()); // '05837dj7:00476056ku5' - должно работать
-console.log(second2.getKey()); // '05837dj7:00476056ku5' - должно работать
+// console.log(second2);
+// console.log(second2.hasOwnProperty('data')); // true - должно быть false
+// console.log(first2.getKey()); // '05837dj7:00476056ku5' - должно работать
+// console.log(second2.getKey()); // '05837dj7:00476056ku5' - должно работать
 // другое решение
 class AbstractClass {
 	constructor(data) {
@@ -235,10 +232,10 @@ class SecondClass3 extends AbstractClass {
 }
 const first3 = new FirstClass3(['JavaScript', 'CSS', 'HTML']);
 const second3 = new SecondClass3(7, 12);
-console.log(second3);
-console.log(second3.hasOwnProperty('data')); // true - должно быть false
-console.log(first3.getKey()); // '05837dj7:00476056ku5' - должно работать
-console.log(second3.getKey()); // '05837dj7:00476056ku5' - должно работать
+// console.log(second3);
+// console.log(second3.hasOwnProperty('data')); // true - должно быть false
+// console.log(first3.getKey()); // '05837dj7:00476056ku5' - должно работать
+// console.log(second3.getKey()); // '05837dj7:00476056ku5' - должно работать
 //01: 25: 02 - Простая задача 3(https: //jsfiddle.net/mockinterview/f8...)
 /*
 Прислал Ivan Efimov
@@ -262,11 +259,11 @@ function hasConsecutive(arr, n, times) {
 	// const regExp = new RegExp(n.toString().repeat(times), 'ig');
 	// return regExp.test(str);
 }
-console.log(hasConsecutive([1, 3, 5, 5, 3, 3, 1], 3, 2)); // true
-console.log(hasConsecutive([1, 2, 3, 4, 5], 1, 1)); // true
-console.log(hasConsecutive([3], 1, 0)); // true
-console.log(hasConsecutive([2, 2, 3, 2, 2, 2, 2, 3, 4, 1, 5], 3, 2)); // false
-console.log(hasConsecutive([5, 5, 5, 5, 5], 5, 7)); // false
+// console.log(hasConsecutive([1, 3, 5, 5, 3, 3, 1], 3, 2)); // true
+// console.log(hasConsecutive([1, 2, 3, 4, 5], 1, 1)); // true
+// console.log(hasConsecutive([3], 1, 0)); // true
+// console.log(hasConsecutive([2, 2, 3, 2, 2, 2, 2, 3, 4, 1, 5], 3, 2)); // false
+// console.log(hasConsecutive([5, 5, 5, 5, 5], 5, 7)); // false
 
 
 //01: 30: 08 - Разговоры про чистоту кода.
