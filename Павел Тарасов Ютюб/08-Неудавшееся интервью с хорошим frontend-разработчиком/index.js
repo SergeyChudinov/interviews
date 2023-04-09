@@ -85,17 +85,17 @@ function myFunc(matrix) {
 		return obj.boolean === true;
 	})?.value;
 
-	return res ? (() => {
-		return res
-	})() : (() => {
-		return 'Нет седловой точки!';
-	})()
-
-	// if (res) {
-	// 	return res;
-	// } else {
+	// return res ? (() => {
+	// 	return res
+	// })() : (() => {
 	// 	return 'Нет седловой точки!';
-	// }
+	// })()
+
+	if (res) {
+		return res;
+	} else {
+		return 'Нет седловой точки!';
+	}
 }
 
 const arr = [
