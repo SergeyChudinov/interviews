@@ -1,5 +1,6 @@
 // 06: 31​ - В чем разница между явным и неявным приведением типов ?
 // Не явное когда привидение делает за нас сам JS. Явное когда мы сами!
+
 // 08 : 02​ - Поток выполнения кода никогда не блокируется, что это значит ? Есть исключения ?
 // 13 : 30​ - Какой будет вывод, если раскомментировать код ?
 // setTimeout(() => Promise.resolve()
@@ -14,6 +15,7 @@
 // Promise.resolve().then(() => console.log(6))
 // console.log(7)
 // 7 5 6 1 2 3 4
+
 // 16 : 19​ - Какие цифры будут выведены ? Вопрос про наследование от Promise.
 class MyPromice extends Promise {
 	constructor(...args) {
@@ -73,6 +75,7 @@ class Trout2 extends Fish2 {
 }
 // console.log(new Trout2('a', 'b'))
 // new Trout2('a', 'b').renderPropertiesWithSuper(document.querySelector('div'))
+
 // 29: 50​ - Какой вывод будет, если раскомментировать console.log ?
 function Mashine(name, year) {
 	Mashine.prototype.getFullName = function() {
@@ -83,6 +86,7 @@ const car = new Mashine('AUDI', '1998');
 const car2 = new Mashine('BMV', '2005');// из за замыкания остануться только последние переменные!
 // console.log(car);
 // console.log(car.getFullName());
+
 // 34 : 45​ - При другом варианте какой будет вывод ?
 function Mashine2(name, year) {
 	function F() {
@@ -97,6 +101,7 @@ const car4 = new Mashine2('BMV', '2005');
 // console.log(car3); // каждый раз будет создавать новая функция!
 // console.log(car3.getFullName());
 // console.log(car4.getFullName());
+
 // 40 : 00​ - В чем отличие рекурсивного setTimeout и setInterval ?
 let startTimeInterval = +new Date();
 let startTimeTimout = +new Date();
@@ -115,6 +120,7 @@ const func = (from, timestamp) => {
 // 	func('setTimeout', +new Date());
 // 	setTimeout(run, 1000);
 // }, 1000);
+
 // 51 : 44​ - Задача 1(https: //jsfiddle.net/mockinterview/06...)
 function findMissingnumver(arr, n) {
 	const newArr = [];
@@ -151,6 +157,7 @@ function findMissingnumver2(arr, n) {
 // console.log(findMissingnumver([2, 3, 4, 7, 11], 9)); // 14
 // //Пропущенны [1,2,3,4,5,6,7], третье пропущенное - 3
 // console.log(findMissingnumver([8, 9, 10], 3)); // 3
+
 // // 01: 27: 51​ - Задача 2(https: //jsfiddle.net/mockinterview/9v...)
 function isSorted(arr) {
 	for (let i = 0; i < arr.length - 1; i++) {
@@ -164,12 +171,6 @@ console.log(isSorted([])); // true
 console.log(isSorted([-Infinity, -5, 0, 3, 9])); // true
 console.log(isSorted([3, 9, -3, 10])); // false
 
-
-// return res ? (() => {
-// 	return res
-// })() : (() => {
-// 	return 'Нет седловой точки!';
-// })()
 
 
 
