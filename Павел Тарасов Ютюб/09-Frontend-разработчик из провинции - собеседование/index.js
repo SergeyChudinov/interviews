@@ -56,7 +56,7 @@ class Trout extends Fish {
 		console.log(this)
 	}
 }
-// new Trout('a', 'b', 'c')
+new Trout('a', 'b', 'c')
 
 class Fish2 {
 		constructor(habitat, length) {
@@ -75,6 +75,35 @@ class Trout2 extends Fish2 {
 }
 // console.log(new Trout2('a', 'b'))
 // new Trout2('a', 'b').renderPropertiesWithSuper(document.querySelector('div'))
+
+class Fish3 {
+	constructor(habitat, length) {
+		this.habitat = habitat
+		this.length = length
+	}
+	renderProperties(element) {
+		element.innerHTML = JSON.stringify(this)
+	}
+}
+class Trout3 extends Fish3 {
+	constructor(habitat, length, variety) {
+		super(habitat, length)
+		this.variety = variety
+	}
+	renderPropertiesWithSuper(element) {
+		element.className = "green"
+		super.renderProperties(element);
+	}
+}
+let grouper3 = new Fish3("saltwater", "26in");
+console.log(grouper3);
+grouper3.renderProperties(document.getElementById("grouper"));
+let rainbowTrout3 = new Trout3("freshwater", "14in", "rainbow");
+console.log(rainbowTrout3);
+// вызываем функцию родителя
+rainbowTrout3.renderProperties(document.getElementById("rainbowTrout"));
+//вызываем функцию потомка
+rainbowTrout3.renderPropertiesWithSuper(document.getElementById("rainbowTroutParent"));
 
 // 29: 50​ - Какой вывод будет, если раскомментировать console.log ?
 function Mashine(name, year) {
