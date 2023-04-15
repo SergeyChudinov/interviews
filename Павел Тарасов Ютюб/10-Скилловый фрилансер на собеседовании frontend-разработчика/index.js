@@ -122,9 +122,6 @@ class Panel {
 }
 function main() {
   var elements = document.querySelector(".wrapper");
-	for (const elem of elements.children) {
-		arr.push(new Panel(elem));
-	}
 	const handler = (e) => {
 		const elem = arr.find(el => el.name === e.target.className);
 		const counter = document.querySelector(`.${elem.name}-counter`);
@@ -134,12 +131,12 @@ function main() {
 		}
 	}
 	for (const element of elements.children) {
+		arr.push(new Panel(element));
 		element.addEventListener('click', handler);
 	}
 }
 // main();
 // console.log(arr)
-
 
 class Panel2 {
 	constructor(element) {
@@ -170,8 +167,6 @@ function main2() {
 main2();
 
 // 01: 50: 56 - Разбираемся с первой задачкой и event loop.
-
-
 
 /*От меня. В чем разница императивного и декларативного подхода в javascript? Это процедурный и ООП стили?
 	Декларативное программирование - это когда в коде описано что должно получиться, а императивное - когда
