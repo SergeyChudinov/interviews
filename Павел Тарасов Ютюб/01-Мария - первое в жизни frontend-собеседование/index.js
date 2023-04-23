@@ -20,6 +20,13 @@ function execute(a, b, c) {
 console.log(execute(6, '-', 3));
 console.log(execute(6, '>=', 3));
 
+function sum(a, b, o) {
+	return Function('x', 'y', `return x ${o} y`)(a, b); //1
+	return Function(`return ${a} ${o} ${b}`); //2
+}
+console.log(sum(8, 5, '-')); //1
+console.log(sum(8, 5, '-')()); //2
+
 const arr = [2,3,1,4,21]
 const filterArr = arr.filter(n => n >= 2) 
 console.log(filterArr)
