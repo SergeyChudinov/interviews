@@ -34,6 +34,15 @@ deepFreeze(obj);
 obj.internal.a = 'другоеЗначение';
 obj.internal.a; // undefined
 console.log(obj)
+/*Метод Object.getOwnPropertyNames() возвращает массив со всеми свойствами (независимо 
+от того, перечисляемые они или нет), найденными непосредственно в переданном объекте.*/
+const object1 = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+console.log(Object.getOwnPropertyNames(object1));
+// Expected output: Array ["a", "b", "c"]
 
 /*Метод Object.seal() запечатывает объект, предотвращая добавление новых свойств к объекту и
 делая все существующие свойства не настраиваемыми. Значения представленных свойств всё ещё 
