@@ -90,9 +90,9 @@ const obj = {
   [Symbol.iterator]() {
   }
 }
-for (let val of obj) {
-  console.log(val);
-}
+// for (let val of obj) {
+//   console.log(val);
+// }
 
 Object.defineProperty(Object.prototype, Symbol['iterator'], {
   value: function () {
@@ -126,3 +126,7 @@ for (let [prop, val] of obj2) {
 }
 // name Sergey
 // age 37
+
+const iterator = obj2[Symbol.iterator]();
+console.log(iterator.next()); // { value: [ 'name', 'Sergey' ], done: false }
+console.log(iterator.next()); // { value: [ 'age', 37 ], done: false }

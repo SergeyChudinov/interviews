@@ -74,7 +74,7 @@ arr[0] = 'A';
 arr['1'] = 'b';
 arr.two = 'c';
 arr[3] = 'd';
-// console.log(arr.length, arr)
+console.log(arr.length, arr)
 
 // 23 : 56 - Вопрос про прототипы и proto.
 function Creature(name) {
