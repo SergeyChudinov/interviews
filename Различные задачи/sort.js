@@ -13,3 +13,5 @@ function sortFunc(arr) {
 }
 sortFunc(array);
 console.log(array)
+
+

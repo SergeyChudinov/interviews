@@ -62,6 +62,12 @@ console.log(arr2.myReduce((acc, elem, index, arr) => {
 }, 0));
 console.log(arr2)
 
+// reduce из прошлого урока
+const codeVariants = Array.from(
+  {length: 25},
+  (_, i) => ({number: i + 1, value: Math.floor(Math.random() * 1001)})
+).myReduce((acc, o) => (acc[o.number] = o.value, acc), {});
+console.log(codeVariants);
 
 // 01:10:00 - Задача 2, функция squareDigits (https://jsfiddle.net/mockinterview/o1...)
 /*
