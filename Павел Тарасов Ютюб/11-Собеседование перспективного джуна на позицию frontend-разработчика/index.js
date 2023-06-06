@@ -152,9 +152,13 @@ function memoize4(fn) {
 		return result
 	}
 }
-const add4 = (n) => (n + 10);
+const add4 = (n) => {
+	console.log(this)
+	return (n + 10)
+};
 const memoizedAdd4 = memoize4(add4);
 console.log(memoizedAdd4(4));
+
 
 // 20:31 - Задача 1 про reverse числа (https://jsfiddle.net/mockinterview/mr...)
 /*
@@ -168,7 +172,7 @@ function reverse(num) {
 		sign = '-';
 		str = str.slice(1);
 	}
-	return +(sign + +str.split('').reverse().join(''));
+	return +(sign + str.split('').reverse().join(''));
 }
 console.log(+((120).toString()).split('').reverse().join(''))
 console.log(reverse(123)); // 321

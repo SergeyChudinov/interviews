@@ -171,7 +171,7 @@ function getPINs(observed) {
 // console.log(getPINs("7")); // ['4', '7', '8']
 // console.log(getPINs("8")); // ["5", "7", "8", "9", "0"]
 // console.log(getPINs("11")); // ['11', '12', '14', '21', '22', '24', '41', '42', '44']
-console.log(getPINs("132")); // 
+console.log(getPINs("13")); // 
 // console.log(getPINs("00")); // ['00', '08', '80', '88']
 // console.log(getPINs("55555")); // 
 
@@ -195,16 +195,16 @@ function getPINs2(observed) {
 	// ['1', '2', '3', '5']
 	if (arrObserved.length === 1) return variants[+arrObserved[0]];
 
-	const nums = variants[arrObserved[0]];
-	const nextVariants = getPINs2(observed.slice(1));
+	const nums = variants[arrObserved[0]]; // ['0','8']      ['1','2','4']
+	const nextVariants = getPINs2(observed.slice(1));  //    ['2','3','6']             ['12', '13', '16', '22', '23', '26', '42', '43', '46']
 
 	const variantsOfNum = [];
 
 	for (let i = 0; i < nums.length; i++) {
-		for (let j = 0; j < nums.length; j++) {
+		for (let j = 0; j < nextVariants.length; j++) {
 			variantsOfNum.push(nums[i] + nextVariants[j])
 		}
 	}
-	return variantsOfNum;
+	return variantsOfNum;                             //  ['12', '13', '16', '22', '23', '26', '42', '43', '46']
 }
-console.log(getPINs("132")); //
+console.log(getPINs2("013")); //

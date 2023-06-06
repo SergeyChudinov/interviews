@@ -127,7 +127,7 @@ function Rectangle(width, height) {
 	// 	return this.width * this.height;
 	// }
 }
-Rectangle.prototype.getArea = function() {
+Rectangle.prototype.getArea = function() { // так метод не будет дублироваться для каждого наследника
 	return this.width * this.height;
 }
 

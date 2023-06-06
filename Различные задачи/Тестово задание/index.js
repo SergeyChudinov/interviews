@@ -51,3 +51,22 @@ Promise.all([x(), y()]).then((res) => console.log(res[0], res[1]));
 // let res = await promise; // будет ждать, пока промис не выполнится (*)
 
 
+console.log((function (a) {
+  return function plus(b) {
+    return function minus(c) {
+      return a + b - c;
+    }
+  }
+})(2)(3)(1))
+
+console.log((function (a) {
+  return {
+    plus: (b) => {
+      return {
+        minus: (c) => {
+          return a + b - c;
+        }
+      }
+    }
+  }
+})(2).plus(3).minus(1))
