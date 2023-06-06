@@ -79,11 +79,11 @@ function getAnagrams2(string) {
     const words = string.split(' ');
     const obj = {};
     for (let word of words) {
-        let newWord = word.split('').sort().join('')
-        if (newWord in obj) {
-            obj[newWord].push(word);
+        let sortWord = word.split('').sort().join('')
+        if (sortWord in obj) {
+            obj[sortWord].push(word);
         } else {
-            obj[newWord] = [word];
+            obj[sortWord] = [word];
         }
     }
     return Object.values(obj).filter(arr => arr.length > 1);
