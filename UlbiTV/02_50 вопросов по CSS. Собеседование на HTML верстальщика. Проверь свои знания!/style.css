@@ -1,0 +1,27 @@
+button:disabled {
+	color: red;
+}
+
+button[disabled] {
+	color: red;
+}
+p {
+	font-size: 30px;
+	text-shadow: 3px 3px 2px rgba(54,23,14,0.89);
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	perspective: 500px;
+}
+.block {
+	height: 200px;
+	width: 200px;
+	background-color: green;
+	transition: 1s all ;
+}
+div:hover {
+	transform: rotateX(45deg);
+}

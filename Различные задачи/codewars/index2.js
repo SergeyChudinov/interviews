@@ -1,4 +1,4 @@
-function duplicateEncode2(word){
+function duplicateEncode(word){
   const newArr = [];
 	for (let i = 0; i < word.length; i++) {
 		let arr = word.split('').filter(l => l === word[i]);
@@ -11,7 +11,7 @@ function duplicateEncode2(word){
 	return newArr.join('');
 }
 
-function duplicateEncode(word){
+function duplicateEncode2(word){
 	return word.split('').map(let => {
 		if (word.split('').filter(l => l === let).length > 1) {
 			return ')';
