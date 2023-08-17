@@ -1,31 +1,31 @@
-// function count(string) {
-//   const obj = {};
-//   for (let i = 0; i < string.length; i++) {
-//     if (!obj.hasOwnProperty(string[i])) {
-// 			obj[string[i]] = 1;
-//     } else {
-// 			obj[string[i]]++;
-// 		}
-//   }
-//   return obj;
-// }
+function count(string) {
+  const obj = {};
+  for (let i = 0; i < string.length; i++) {
+    if (!obj.hasOwnProperty(string[i])) {
+			obj[string[i]] = 1;
+    } else {
+			obj[string[i]]++;
+		}
+  }
+  return obj;
+}
 
-// function count (string) {  
-//   var count = {};
-//   string.split('').forEach(function(s) {
-//      count[s] ? count[s]++ : count[s] = 1;
-//   });
-//   return count;
-// }
+function count1 (string) {  
+  var count = {};
+  string.split('').forEach(function(s) {
+     count[s] ? count[s]++ : count[s] = 1;
+  });
+  return count;
+}
 
-function count (string) {
+function count2 (string) {
   return string.split('').reduce(function(counts,char){
-    counts[char] = (counts[char]||0) + 1;
+    counts[char] = (counts[char] || 0) + 1;
     return counts;
   },{});
 }
 
-function count (string) {
+function count3 (string) {
   return string.split('').reduce((counts,char) => 
     (counts[char] = (counts[char]||0) + 1, counts),{});
 }

@@ -26,13 +26,15 @@ Array.prototype.myReduce = function (callback, initialValue) {
   // let result = arguments.length === 1 ? this[0] : initialValue;// arguments.length - колечестов переданных аргументов(у нас их 2, может быть один - сам колбек!)
   for (let i = index; i < length; i++) {
     if (this[i]) {
-      result = callback.call({},result, this[i], i, this);
+      // result = callback.call({a: 1},result, this[i], i, this);
+      result = callback.bind({a: 1})(result, this[i], i, this);
     }
   }
   return result 
 };
 console.log(
-  [1, 2, 3, 4, 5].myReduce((acc, elem, index, arr) => {
+  [1, 2, 3, 4, 5].myReduce(function(acc, elem, index, arr) {  // => result = callback.call({a: 1},result, this[i], i, this);
+    console.log(this)
     if (index % 2) {
       return acc + elem;
     }

@@ -72,6 +72,7 @@ function check(str, bracketsConfig) {
 	const parsedBrackedConfig = bracketsConfig.map((r) => {
 		return `${r[0]}${r[1]}`;
 	});
+	console.log(parsedBrackedConfig) // ['()', '[]', '{}']
 	let prevLength = str.length;
 	while (str !== '') {
 		parsedBrackedConfig.forEach((r) => {

@@ -142,13 +142,13 @@ const func = (from, timestamp) => {
 		? timestamp - startTimeInterval - (intervalCount++ * 1000)
 		: timestamp - startTimeTimout - (timoutCount++ * 1000)}`);
 };
-// setInterval(function() {
-// 	func('setInterval', +new Date());
-// }, 1000);
-// setTimeout(function run() {
-// 	func('setTimeout', +new Date());
-// 	setTimeout(run, 1000);
-// }, 1000);
+setInterval(function() {
+	func('setInterval', +new Date());
+}, 1000);
+setTimeout(function run() {
+	func('setTimeout', +new Date());
+	setTimeout(run, 1000);
+}, 1000);
 
 // 51 : 44​ - Задача 1(https: //jsfiddle.net/mockinterview/06...)
 function findMissingnumver(arr, n) {
