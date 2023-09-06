@@ -157,3 +157,12 @@ arr3.flat(2);
 var arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
 arr4.flat(Infinity);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+function fizzbuzz(number) {
+  if (number % 3 === 0 && number % 5 === 0) return "FizzBuzz";
+  if (number % 3 === 0) return "Fizz";
+  if (number % 5 === 0) return "BuzzBuzz";
+  return number;
+}
+console.log(fizzbuzz(10))

@@ -50,11 +50,11 @@ class B extends A {}
 const b1 = new B();
 b1.__proto__.five = 5;
 const b2 = new B();
-// console.log(b1.five) // 5
-// console.log(b2.five) // 5
-// console.log(B.five) // und
-// console.log(A.prototype.five) // und
-// console.log(B.prototype.five) // 5
+console.log(b1.five) // 5
+console.log(b2.five) // 5
+console.log(B.five) // und
+console.log(A.prototype.five) // und
+console.log(B.prototype.five) // 5
 //27:45 - Задача 1, которую не провалили :) Сорян, в след. раз постараюсь брать что-то только если сам решал. (https://jsfiddle.net/mockinterview/ak...)
 /*
 Cформировать массив из элементов в седловых точках матриц. В седловой точке 

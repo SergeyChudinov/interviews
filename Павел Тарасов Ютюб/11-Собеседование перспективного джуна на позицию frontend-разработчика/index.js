@@ -59,7 +59,7 @@ function fn(a) {
 	}
 }
 console.log(fn(1)(2))
-(function(data) {console.log(data)})(20)
+// (function(data) {console.log(data)})(20)
 
 const add = (n) => (n + 10);
 add(9);
