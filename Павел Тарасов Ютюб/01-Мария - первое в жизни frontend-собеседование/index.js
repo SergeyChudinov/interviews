@@ -26,7 +26,6 @@ console.log(execute(6, '>=', 3));
 
 function sum(a, b, o) {
 	return Function('x', 'y', `return x ${o} y`)(a, b); //1
-	return Function(`return ${a} ${o} ${b}`); //2
 }
 console.log(sum(8, 5, '-')); //1
 console.log(sum(8, 5, '-')()); //2
@@ -77,3 +76,10 @@ const i = Infinity;
 if (i + 1 === i) {
 	console.log('Infinity')
 }
+
+function randomInteger(min, max) {
+  return Math.random() * (max - min) + min;
+};
+console.log(randomInteger(1, 5)); // 1
+console.log(randomInteger(1, 5)); // 3
+console.log(randomInteger(1, 5)); // 5
