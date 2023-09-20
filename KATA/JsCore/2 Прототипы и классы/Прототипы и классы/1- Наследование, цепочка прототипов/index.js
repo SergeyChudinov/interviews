@@ -22,26 +22,26 @@ console.log(user2.name); // undefined
 Добавьте всем функциям в прототип метод defer(ms), который вызывает функции через ms миллисекунд.
 После этого должен работать такой код:
 */
-// Function.prototype.defer = function(ms) {
-// 	setTimeout(this, ms)
-// }
-// function f() {
-//   console.log("Hello!");
-// }
+Function.prototype.defer = function(ms) {
+	setTimeout(this, ms)
+}
+function f() {
+  console.log("Hello!");
+}
 // f.defer(1000); // выведет "Hello!" через 1 секунду
 
 /*
 Добавьте всем функциям в прототип метод defer(ms), который возвращает обёртку, откладывающую вызов функции на ms миллисекунд.
 */
-// Function.prototype.defer = function(ms) {
-// 	let _this = this
-// 	return function(a, b) {
-// 		setTimeout(() => _this(a, b), ms);
-// 	}
-// }
-// function f(a, b) {
-//   console.log(a + b);
-// }
+Function.prototype.defer = function(ms) {
+	let _this = this
+	return function(a, b) {
+		setTimeout(() => _this(a, b), ms);
+	}
+}
+function f(a, b) {
+  console.log(a + b);
+}
 // f.defer(1000)(1, 2); // выведет 3 через 1 секунду.
 
 /*

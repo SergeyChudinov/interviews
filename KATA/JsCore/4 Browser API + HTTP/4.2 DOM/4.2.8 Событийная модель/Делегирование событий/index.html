@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="menu">
+		<button data-action="save">Сохранить</button>
+		<button data-action="load">Загрузить</button>
+		<button data-action="search">Поиск</button>
+	</div>
+
+	Счётчик: <input type="button" value="1" data-counter>
+	Ещё счётчик: <input type="button" value="2" data-counter><br>
+
+
+	<button data-toggle-id="subscribe-mail">
+		Показать форму подписки
+	</button>
+	<form id="subscribe-mail" hidden>
+		Ваша почта: <input type="email">
+	</form>
+
+	<script src="index.js"></script>
+</body>
+</html>

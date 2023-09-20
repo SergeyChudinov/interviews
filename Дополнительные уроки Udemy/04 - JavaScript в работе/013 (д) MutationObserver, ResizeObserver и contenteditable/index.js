@@ -18,7 +18,7 @@ observer.observe(box, {
 	childList: true
 })
 
-observer.disconnect()// остановим наблюдение!
+// observer.disconnect()// остановим наблюдение!
 
 /*
 ResizeObserver- отслеж измен размеров элементов!
