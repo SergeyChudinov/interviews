@@ -43,7 +43,7 @@ let animal = {
 }
 let rabbit = Object.create(animal)
 console.log(rabbit)
-console.clear()
+// console.clear()
 
 /*Практическая задача 2.3.8
 Object Create

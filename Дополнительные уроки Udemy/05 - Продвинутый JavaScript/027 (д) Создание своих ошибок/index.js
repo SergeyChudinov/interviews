@@ -32,7 +32,7 @@ try {
 		}	
 	}
 } catch(e) {
-	console.error(e.message);
+	console.error(e.name);
 }
 
 // const err = new SyntaxError('abc');

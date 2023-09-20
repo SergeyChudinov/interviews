@@ -10,6 +10,8 @@ console.log(classof(123));
 console.log(classof(true));
 console.log(classof(/\d/));
 
+console.log({}.toString.call([]));
+
 /*
 Возможно ли создать функции A и B, чтобы new A() == new B()?
 */

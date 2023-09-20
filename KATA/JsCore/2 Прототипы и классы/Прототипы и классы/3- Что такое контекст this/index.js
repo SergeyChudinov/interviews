@@ -38,6 +38,29 @@ Array.prototype.muliBy = function (callback) {
 console.log(array.muliBy((num) => Math.pow(num, 2)));
 console.log(array);
 
+// Прозрачное кеширование
+function slow(x) {
+  // здесь могут быть ресурсоёмкие вычисления
+  console.log(`Called with ${x}`);
+  return x;
+}
+function cachingDecorator(func) {
+  let cache = new Map();
+  return function(x) {
+    if (cache.has(x)) {    // если кеш содержит такой x,
+      return cache.get(x); // читаем из него результат
+    }
+    let result = func(x); // иначе, вызываем функцию
+    cache.set(x, result); // и кешируем (запоминаем) результат
+    return result;
+  };
+}
+slow = cachingDecorator(slow);
+console.log( slow(1) ); // slow(1) кешируем
+console.log( "Again: " + slow(1) ); // возвращаем из кеша
+console.log( slow(2) ); // slow(2) кешируем
+console.log("Again: " + slow(2)); // возвращаем из кеша
+
 // Прозрачное кеширование и Декораторы
 // сделаем worker.slow кеширующим
 let worker = {
@@ -247,8 +270,7 @@ function throttle4(func, ms) {
     savedArgs,
     savedThis;
   function wrapper() {
-    if (isThrottled) {
-      // (2)
+    if (isThrottled) {   // (2)
       savedArgs = arguments;
       savedThis = this;
       return;

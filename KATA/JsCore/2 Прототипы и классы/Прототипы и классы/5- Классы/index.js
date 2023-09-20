@@ -230,7 +230,6 @@ const ten = calc.add(10);
 console.log(ten)
 console.log(ten.sub(5).result()); // 10 - 5 = 5
 console.log(ten.result()); // 10
-console.clear();
 
 /*
 Транслятор событий
